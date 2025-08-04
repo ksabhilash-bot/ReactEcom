@@ -28,7 +28,7 @@ try {
   console.error('❌MongoDB connection error:', error);
 }
 app.use(cors({
-    origin:'http://localhost:5173',
+    origin:process.env.VITE_ORIGIN,
     methods:['GET','POST','PUT','DELETE'],
     allowedHeaders:[
         "Content-Type","Authorization",'Cache-Control','Expires','pragma'
@@ -43,7 +43,7 @@ app.use('/api/shop/cart',CartRouter)
 app.use('/api/shop/address',AddressRouter)
 app.use('/api/order',orderR)
 app.use('/api/shop/review',ReviewRouter)
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`🚀 Running at http://localhost:${PORT}`);
 });
