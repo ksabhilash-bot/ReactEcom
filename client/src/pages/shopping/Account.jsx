@@ -1,11 +1,11 @@
-import React from 'react';
-import acc from '/acc.jpeg';
-import i from '/image.png';
-import a from '/address.png';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import Address from './address';
-import AddressCard from './AddressCard';
-import ShoppingCheckout from './checkout';
+import React from "react";
+import acc from "/acc.jpeg";
+import i from "/image.png";
+import a from "/address.png";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Address from "./Address";
+import AddressCard from "./AddressCard";
+import ShoppingCheckout from "./checkout";
 
 const ShoppingAccount = () => {
   return (
@@ -18,7 +18,9 @@ const ShoppingAccount = () => {
           alt="Account Banner"
         />
         <div className="absolute inset-0 bg-opacity-40 flex items-center justify-center">
-          <h1 className="text-zinc-950 text-4xl font-bold tracking-wide">My Account</h1>
+          <h1 className="text-zinc-950 text-4xl font-bold tracking-wide">
+            My Account
+          </h1>
         </div>
       </div>
 
@@ -51,13 +53,13 @@ const ShoppingAccount = () => {
             </TabsList>
 
             <TabsContent value="orders">
-              <ShoppingCheckout/>
+              <ShoppingCheckout />
             </TabsContent>
             <TabsContent value="address">
               <Address />
             </TabsContent>
             <TabsContent value="saddress">
-              <AddressCard/>
+              <AddressCard />
             </TabsContent>
           </Tabs>
         </div>
