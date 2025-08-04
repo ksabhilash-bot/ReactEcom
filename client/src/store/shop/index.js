@@ -12,7 +12,7 @@ export const fetchAllFilteredProducts = createAsyncThunk(
   async ({filterParams,sortParams}) => {
     const query = new URLSearchParams({...filterParams,sortby:sortParams})
     const result = await axios.get(
-      `http://localhost:3002/api/shop/products/get?${query}`
+      `https://reactecom-6wka.onrender.com/api/shop/products/get?${query}`
     );
     if(!result){
         console.log("No data found")
@@ -21,7 +21,7 @@ export const fetchAllFilteredProducts = createAsyncThunk(
   }
 );
 export const fetchProductDetails = createAsyncThunk('/products/fetchProductDetails',async(id)=>{
-    const result = await axios.get(`http://localhost:3002/api/shop/products/get/${id}`)
+    const result = await axios.get(`https://reactecom-6wka.onrender.com/api/shop/products/get/${id}`)
     if(!result){
         console.log("No data found")
     }

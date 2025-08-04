@@ -12,7 +12,7 @@ export const addOrder = createAsyncThunk(
   async ({ userId, addressId, cartId }, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "http://localhost:3002/api/order/addOrder",
+        "https://reactecom-6wka.onrender.com/api/order/addOrder",
         {
           userId,
           addressId,
@@ -30,7 +30,9 @@ export const fetchOrder = createAsyncThunk(
   "order/fetchOrder",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get("http://localhost:3002/api/order/fetch");
+      const response = await axios.get(
+        "https://reactecom-6wka.onrender.com/api/order/fetch"
+      );
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || error.message);
@@ -41,21 +43,21 @@ export const fetchOrder = createAsyncThunk(
 export const deleteOrder = createAsyncThunk(
   "order/deleteOrder",
   async ({ userId, cartId }) => {
-      const response = await axios.delete(`http://localhost:3002/api/order/deleteOrder/${userId}/${cartId}`
-        
-      );
-      return response.data;}
-    
+    const response = await axios.delete(
+      `https://reactecom-6wka.onrender.com/api/order/deleteOrder/${userId}/${cartId}`
+    );
+    return response.data;
+  }
 );
 
 export const admindeleteOrder = createAsyncThunk(
   "order/admindeleteOrder",
-  async ({ orderId}) => {
-      const response = await axios.delete(`http://localhost:3002/api/order/admindeleteOrder/${orderId}`
-        
-      );
-      return response.data;}
-    
+  async ({ orderId }) => {
+    const response = await axios.delete(
+      `https://reactecom-6wka.onrender.com/api/order/admindeleteOrder/${orderId}`
+    );
+    return response.data;
+  }
 );
 
 const orderSlice = createSlice({
@@ -103,20 +105,19 @@ const orderSlice = createSlice({
       })
       .addCase(deleteOrder.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.orders=action.payload.data
+        state.orders = action.payload.data;
       })
       .addCase(deleteOrder.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload || "Failed to delete order";
       });
-       builder
+    builder
       .addCase(admindeleteOrder.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(admindeleteOrder.fulfilled, (state,) => {
+      .addCase(admindeleteOrder.fulfilled, (state) => {
         state.isLoading = false;
-        
       })
       .addCase(admindeleteOrder.rejected, (state, action) => {
         state.isLoading = false;

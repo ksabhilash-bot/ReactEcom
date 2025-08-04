@@ -5,7 +5,7 @@ const initialState={
     reviewarr:[]
 }
 export const addReview = createAsyncThunk('reviewSlice/addReview', async ({ userId, productId, message }) => {
-  const response = await axios.post('http://localhost:3002/api/shop/review/addReview', {
+  const response = await axios.post('https://reactecom-6wka.onrender.com/api/shop/review/addReview', {
     userId,
     productId,
     message
@@ -14,13 +14,13 @@ export const addReview = createAsyncThunk('reviewSlice/addReview', async ({ user
 });
 
 export const fetchReview = createAsyncThunk('reviewSlice/fetchReview', async ({productId}) => {
-  const response = await axios.get(`http://localhost:3002/api/shop/review/fetchReview/${productId}`);
+  const response = await axios.get(`https://reactecom-6wka.onrender.com/api/shop/review/fetchReview/${productId}`);
   
   return response.data;
 });
 
 export const deleteReview = createAsyncThunk('reviewSlice/deleteReview', async ({ userId, productId }) => {
-  const response = await axios.delete(`http://localhost:3002/api/shop/review/deleteReview/${userId}/${productId}`);
+  const response = await axios.delete(`https://reactecom-6wka.onrender.com/api/shop/review/deleteReview/${userId}/${productId}`);
   return response.data;
 });
 

@@ -8,7 +8,7 @@ export const addNewProduct = createAsyncThunk(
   "/products/addnewproduct",
   async (formData) => {
     const result = await axios.post(
-      "http://localhost:3002/api/admin/products/add",
+      "https://reactecom-6wka.onrender.com/api/admin/products/add",
       formData,
       { headers: { "Content-Type": "application/json" } }
     );
@@ -20,10 +20,10 @@ export const fetchAllProducts = createAsyncThunk(
   "/products/fetchAllProducts",
   async () => {
     const result = await axios.get(
-      "http://localhost:3002/api/admin/products/get"
+      "https://reactecom-6wka.onrender.com/api/admin/products/get"
     );
-    if(!result){
-        console.log("No data found")
+    if (!result) {
+      console.log("No data found");
     }
     return result?.data;
   }
@@ -33,7 +33,7 @@ export const editProduct = createAsyncThunk(
   "/products/editProduct",
   async ({ id, formData }) => {
     const result = await axios.put(
-      `http://localhost:3002/api/admin/products/edit/${id}`,
+      `https://reactecom-6wka.onrender.com/api/admin/products/edit/${id}`,
       formData,
       { headers: { "Content-Type": "application/json" } }
     );
@@ -45,7 +45,7 @@ export const deleteProduct = createAsyncThunk(
   "/products/deleteProduct",
   async (id) => {
     const result = await axios.delete(
-      `http://localhost:3002/api/admin/products/delete/${id}`
+      `https://reactecom-6wka.onrender.com/api/admin/products/delete/${id}`
     );
     return result?.data;
   }

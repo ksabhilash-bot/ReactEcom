@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export const addToCart=createAsyncThunk('cart/addToCart',async({userId,productId,quantity})=>{
-    const response = await axios.post('http://localhost:3002/api/shop/cart/add',{
+    const response = await axios.post('https://reactecom-6wka.onrender.com/api/shop/cart/add',{
         userId,
         productId,
         quantity
@@ -16,15 +16,15 @@ export const addToCart=createAsyncThunk('cart/addToCart',async({userId,productId
 })
 
 export const fetchCart=createAsyncThunk('cart/fetchCart',async({userId})=>{
-    const response = await axios.get(`http://localhost:3002/api/shop/cart/fetch/${userId}`)
+    const response = await axios.get(`https://reactecom-6wka.onrender.com/api/shop/cart/fetch/${userId}`)
     return response.data;
 })
 export const deleteCart=createAsyncThunk('cart/deleteCart',async({userId,productId})=>{
-    const response = await axios.delete(`http://localhost:3002/api/shop/cart/delete/${userId}/${productId}`)
+    const response = await axios.delete(`https://reactecom-6wka.onrender.com/api/shop/cart/delete/${userId}/${productId}`)
     return response.data;
 })
 export const updateCart=createAsyncThunk('cart/updateCart',async({userId,productId,quantity})=>{
-    const response = await axios.put(`http://localhost:3002/api/shop/cart/update`,{
+    const response = await axios.put(`https://reactecom-6wka.onrender.com/api/shop/cart/update`,{
         userId,
         productId,
         quantity
