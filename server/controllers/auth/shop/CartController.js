@@ -1,5 +1,5 @@
 import { Cart } from "../../../models/Cart.js";
-import { ProductModel } from "../../../models/Product.js";
+import { ProductModel } from "../../../models/product.js";
 export const addToCart = async (req, res) => {
   try {
     const { userId, productId, quantity } = req.body;
@@ -102,11 +102,10 @@ export const updateCart = async (req, res) => {
         message: "Please provide all the required fields",
       });
     }
-    const cart =await Cart.findOne({ userId });
+    const cart = await Cart.findOne({ userId });
     if (!cart) {
       console.log("cart not found");
       return res.status(404).json({
-        
         success: false,
         message: "Cart not found",
       });
